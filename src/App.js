@@ -1,5 +1,5 @@
 import './App.css';
-import {Link} from 'react-router-dom';
+import {Link, Outlet} from 'react-router-dom';
 
 function App() {
   return (
@@ -17,6 +17,9 @@ function App() {
           </li>
         </ul>
       </header>
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 }
