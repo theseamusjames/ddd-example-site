@@ -4,18 +4,25 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding-left: 4em;
 }
 
 .header ul {
   list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .header li {
   display: inline-block;
-  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .header a {
   text-decoration: none;
   color: inherit;
+}
+
+main {
+  padding-left: 4em;
 }

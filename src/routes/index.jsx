@@ -7,7 +7,7 @@ export default function AppRoutes() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<App />}>
-                <Route path="category/:categoryName" element={<Category />} />
+                    <Route path="category/:categoryName" element={<Category />} />
                 </Route>
             </Routes>
         </BrowserRouter>
