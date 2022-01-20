@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "Anabelle",
+        "price": 50,
+        "sku": "wm-0001",
+        "categories": ["womens"],
+        "description": "Tortoise shell resin and gold-plated frames. Polycarbonate lenses. Medium tint.",
+        "features": ["Polycarbonate lenses", "UV Protection Factor 40", "Carrying case"],
+        "images": ["wm-0001-01.png", "wm-0001-02.png", "wm-0001-03.png"]
+    },
+    {
+        "id": 2,
+        "name": "Angela",
+        "price": 50,
+        "sku": "wm-0002",
+        "categories": ["womens"],
+        "description": "Aluminum and clear resin frames. Polycarbonate lenses. Medium tint.",
+        "features": ["Polycarbonate lenses", "UV Protection Factor 40", "Carrying case"],
+        "images": ["wm-0002-01.png", "wm-0002-02.png", "wm-0002-03.png"]
+    },
+    {
+        "id": 3,
+        "name": "Quinn",
+        "price": 60,
+        "sku": "wm-0003",
+        "categories": ["womens"],
+        "description": "Aluminum and multi-color resin frames. Each pair has a unique pattern. Polycarbonate lenses. Gradient tint.",
+        "features": ["Polycarbonate lenses", "UV Protection Factor 30", "Carrying case"],
+        "images": ["wm-0003-01.png", "wm-0003-02.png", "wm-0003-03.png"]
+    },
+    {
+        "id": 4,
+        "name": "Avril",
+        "price": 50,
+        "sku": "wm-0004",
+        "categories": ["womens"],
+        "description": "White with black confetti resin frames. Brushed aluminum details. Polycarbonate lenses. Medium tint.",
+        "features": ["Polarized", "Polycarbonate lenses", "UV Protection Factor 40", "Carrying case"],
+        "images": ["wm-0004-01.png", "wm-0004-02.png", "wm-0004-03.png"]
+    },
+    {
+        "id": 5,
+        "name": "Sarah",
+        "price": 60,
+        "sku": "wm-0005",
+        "categories": ["womens"],
+        "description": "Blue and clear resin set on aluminum frames. Polycarbonate lenses. Dark tint.",
+        "features": ["Polycarbonate lenses", "UV Protection Factor 50", "Carrying case"],
+        "images": ["wm-0005-01.png", "wm-0005-02.png", "wm-0005-03.png"]
+    },
+    {
+        "id": 6,
+        "name": "Bella",
+        "price": 50,
+        "sku": "wm-0006",
+        "categories": ["womens"],
+        "description": "Gold-plated aluminum frames. Mirrored lenses. Dark tint.",
+        "features": ["Polycarbonate lenses", "UV Protection Factor 50", "Carrying case"],
+        "images": ["wm-0006-01.png", "wm-0006-02.png", "wm-0006-03.png"]
+    },
+    {
+        "id": 7,
+        "name": "Jesse",
+        "price": 60,
+        "sku": "mn-0001",
+        "categories": ["mens"],
+        "description": "Aluminum and black resin frames. Polycarbonate lenses. Dark tint.",
+        "features": ["Polycarbonate lenses", "UV Protection Factor 50", "Carrying case"],
+        "images": ["mn-0001-01.png", "mn-0001-02.png", "mn-0001-03.png"]
+    },
+    {
+        "id": 8,
+        "name": "Joshua",
+        "price": 65,
+        "sku": "mn-0002",
+        "categories": ["mens"],
+        "description": "Aluminum and tortoise shell resin frames. Polycarbonate lenses. Mirrored tint.",
+        "features": ["Polycarbonate lenses", "UV Protection Factor 50", "Carrying case"],
+        "images": ["mn-0002-01.png", "mn-0002-02.png", "mn-0002-03.png"]
+    },
+    {
+        "id": 9,
+        "name": "Andrew",
+        "price": 50,
+        "sku": "mn-0003",
+        "categories": ["mens"],
+        "description": "Aluminum and clear black resin frames. Polycarbonate lenses. Dark tint.",
+        "features": ["Polycarbonate lenses", "UV Protection Factor 50", "Carrying case"],
+        "images": ["mn-0003-01.png", "mn-0003-02.png", "mn-0003-03.png"]
+    },
+    {
+        "id": 10,
+        "name": "Mark",
+        "price": 50,
+        "sku": "mn-0004",
+        "categories": ["mens"],
+        "description": "Clear resin frames. Polycarbonate lenses. Medium tint.",
+        "features": ["Polycarbonate lenses", "UV Protection Factor 40", "Carrying case"],
+        "images": ["mn-0004-01.png", "mn-0004-02.png", "mn-0004-03.png"]
+    },
+    {
+        "id": 11,
+        "name": "Stevie",
+        "price": 50,
+        "sku": "mn-0005",
+        "categories": ["mens"],
+        "description": "Translucent chestnut resin frames. Black aluminum details. Polycarbonate lenses. Dark tint.",
+        "features": ["Polycarbonate lenses", "UV Protection Factor 50", "Carrying case"],
+        "images": ["mn-0005-01.png", "mn-0005-02.png", "mn-0005-03.png"]
+    },
+    {
+        "id": 12,
+        "name": "Chad",
+        "price": 40,
+        "sku": "mn-0006",
+        "categories": ["mens"],
+        "description": "Black resin frames. Frameless appearance. Polycarbonate lenses. Mirrored lenses.",
+        "features": ["Polycarbonate lenses", "UV Protection Factor 50", "Carrying case"],
+        "images": ["mn-0006-01.png", "mn-0006-02.png", "mn-0006-03.png"]
+    }
+]
