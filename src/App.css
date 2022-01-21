@@ -18,11 +18,7 @@
   margin-right: 1em;
 }
 
-.header a {
-  text-decoration: none;
-  color: inherit;
-}
-
 main {
   padding-left: 4em;
+  padding-right: 4em;
 }
