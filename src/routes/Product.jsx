@@ -1,10 +1,13 @@
 import {useParams} from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../redux/cartSlice';
 import "./Product.css";
 
 import Gallery from '../components/Gallery';
 
 export default function Product() {
+    const dispatch = useDispatch();
+
     const params = useParams();
     const products = useSelector((state) => state.product.products);
     if ( products.length === 0 ) 
@@ -13,6 +16,10 @@ export default function Product() {
     const product = products.find(p => p.id === parseInt(params.productId));
 
     const features = product.features.map((feature, index) => (<li key={index}>{feature}</li>));
+
+    const _addToCart = () => {
+        dispatch(addToCart(product));
+    }
 
     return (
         <section className="product">
@@ -23,7 +30,7 @@ export default function Product() {
                 <h2>{product.name}</h2>
                 <p>${product.price}</p>
                 <div>
-                    <button>Add to Cart</button>
+                    <button onClick={_addToCart}>Add to Cart</button>
                 </div>
                 <h3>Description</h3>
                 <p>{product.description}</p>
