@@ -2,10 +2,11 @@ import './App.css';
 import { useEffect } from 'react';
 import {Link, Outlet} from 'react-router-dom';
 import {setProducts} from './redux/productSlice';
-import {useDispatch} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 
 function App() {
   const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
   
   useEffect(() => {
       async function getProductData() {
@@ -30,6 +31,18 @@ function App() {
             <Link to="/category/womens">Womens</Link>
           </li>
         </ul>
+        <div className="cartIcon">
+          🛒
+          {
+            (cartItems.length > 0) ? (
+              <div className="itemCount">
+                {cartItems.length}
+              </div>
+            ) : (
+              <></>
+            )
+          }
+        </div>
       </header>
       <main>
         <Outlet />

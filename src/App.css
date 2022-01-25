@@ -2,9 +2,10 @@
   height: 4em;
   border-bottom: 1px solid rgba(0,0,0,0.1);
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding-left: 4em;
+  padding-right: 4em;
 }
 
 .header ul {
@@ -16,6 +17,25 @@
 .header li {
   display: inline-block;
   margin-right: 1em;
+}
+
+.header .cartIcon {
+  font-size: 2em;
+}
+
+.header .cartIcon .itemCount {
+  width: 1em;
+  height: 1em;
+  padding: 0.2em;
+  font-size: 0.5em;
+  line-height: 1em;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #CC0000;
+  color: white;
+  position: absolute;
+  margin-left: 1.2em;
+  margin-top: -1.2em;
 }
 
 main {
