@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import {removeFromCart} from '../redux/cartSlice';
+import {X} from 'react-feather';
 
 export default function CartItemsList({cart}) {
     const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export default function CartItemsList({cart}) {
                     <div className='price'>${item.price}</div>
                 </div>
                 <div className='removeItem' onClick={() => _removeItem(index)}>
-                    ❌
+                    <X />
                 </div>
             </div>
         );

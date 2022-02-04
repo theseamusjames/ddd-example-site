@@ -6,6 +6,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import Cart from './components/Cart';
 import {toggleCart, hideCart} from './redux/cartSlice';
 import {useLocation} from 'react-router-dom';
+import {ShoppingCart} from 'react-feather';
 
 function App() {
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ function App() {
           </li>
         </ul>
         <div className="cartIcon" onClick={_toggleCart}>
-          🛒
+          <ShoppingCart size={30}/>
           {
             (cart.items.length > 0) ? (
               <div className="itemCount">

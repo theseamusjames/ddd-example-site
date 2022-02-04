@@ -5,10 +5,15 @@
     background-color: #EEEEEE;
     right: 0;
     transition: width 0.5s ease-in-out;
+    overflow: hidden;
 }
 
 .cart.show {
     width: 25%;
+}
+
+.cart .removeItem {
+    cursor: pointer;
 }
 
 .item {
