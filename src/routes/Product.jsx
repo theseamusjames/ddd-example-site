@@ -22,7 +22,7 @@ export default function Product() {
         dispatch(addToCart(product));
     }
 
-    return (
+    return ( 
         <section className="product">
             <div className="leftColumn">
                 <Gallery images={product.images} />
@@ -31,7 +31,7 @@ export default function Product() {
                 <h2>{product.name}</h2>
                 <p>${product.price}</p>
                 <div>
-                    <Button clickEvent={_addToCart} text="Add to Cart" type="addToCart" />
+                    <Button clickEvent={_addToCart} text="Add to Cart" type="primary" />
                 </div>
                 <h3>Description</h3>
                 <p>{product.description}</p>

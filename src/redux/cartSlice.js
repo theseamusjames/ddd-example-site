@@ -1,15 +1,30 @@
 import {createSlice} from '@reduxjs/toolkit';
 
+const initialState = {
+    address: {
+        name: '',
+        street: '',
+        city: '',
+        state: '',
+        postcode: '',
+        country: '',
+    },
+    payment: {
+        ccNumber: '',
+        expiration: '',
+    },
+    shippingMethod: '',
+    items: [],
+    totals: {
+        subtotal: 0,
+        grandtotal: 0,
+    },
+    visible: false,
+};
+
 export const cartSlice = createSlice({
     name: 'cart',
-    initialState: {
-        items: [],
-        totals: {
-            subtotal: 0,
-            grandtotal: 0,
-        },
-        visible: false,
-    },
+    initialState,
     reducers: {
         addToCart: (state, action) => {
             state.items.push(action.payload);
@@ -32,8 +47,23 @@ export const cartSlice = createSlice({
             state.items = [...state.items.slice(0, action.payload), ...state.items.slice(action.payload + 1, state.items.length)];
             return state;
         },
+        updateAddress: (state, action) => {
+            const {field, value} = action.payload;
+            state.address[field] = value;
+            return state;
+        },
+        updateShippingMethod: (state, action) => {
+            state.shippingMethod = action.payload;
+            return state;
+        },
+        updatePaymentMethod: (state, action) => {
+            const {field, value} = action.payload;
+            state.payment[field] = value;
+            return state;
+        },
+        clearCart: (state) => initialState,
     }
 });
 
-export const {addToCart, toggleCart, hideCart, removeFromCart} = cartSlice.actions;
+export const {addToCart, toggleCart, hideCart, removeFromCart, updateAddress, updateShippingMethod, updatePaymentMethod, clearCart} = cartSlice.actions;
 export default cartSlice.reducer;
