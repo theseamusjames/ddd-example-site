@@ -5,11 +5,17 @@ import {setProducts} from './redux/productSlice';
 import {useSelector, useDispatch} from 'react-redux';
 import Cart from './components/Cart';
 import {toggleCart, hideCart} from './redux/cartSlice';
+import {useLocation} from 'react-router-dom';
 
 function App() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  
+  const location = useLocation();
+
+  useEffect(() => {
+    dispatch(hideCart());
+  }, [location, dispatch]);
+
   useEffect(() => {
       async function getProductData() {
           const response = await fetch('http://localhost:3000/products.json');
@@ -33,7 +39,7 @@ function App() {
       <header className="header" onClick={_hideCart}>
         <ul>
           <li>
-            <h1>Bridge & Glass</h1>
+            <h1><Link to="/">Bridge & Glass</Link></h1>
           </li>
           <li>
             <Link to="/category/mens">Mens</Link>
