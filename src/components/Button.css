@@ -5,11 +5,11 @@
     border-radius: 5px;
 }
 
-.addToCart {
+.primary {
     background: linear-gradient(rgb(20,120,20) 0%, rgb(44,88,44) 100%);
     font-size: 1.2em;
 }
 
-.addToCart:active {
+.primary:active {
     background: rgb(44,88,44);
 }

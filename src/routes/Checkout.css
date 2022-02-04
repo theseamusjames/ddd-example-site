@@ -1,0 +1,40 @@
+.checkout {
+    display: flex;
+    justify-content: space-around;
+}
+
+.addressPanel fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.addressPanel label {
+    display: block;
+    font-size: 0.5em;
+}
+
+.addressPanel input[type='text'] {
+    font-size: 1.2em;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    width: 30em;
+}
+
+.ccFormPanel fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.ccFormPanel label {
+    display: block;
+    font-size: 0.5em;
+}
+
+.ccFormPanel input[type='text'] {
+    font-size: 1.2em;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    width: 30em;
+}
