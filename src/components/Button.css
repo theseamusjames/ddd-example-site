@@ -1,0 +1,15 @@
+.button {
+    color: white;
+    padding: 0.5em;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+}
+
+.addToCart {
+    background: linear-gradient(rgb(20,120,20) 0%, rgb(44,88,44) 100%);
+    font-size: 1.2em;
+}
+
+.addToCart:active {
+    background: rgb(44,88,44);
+}

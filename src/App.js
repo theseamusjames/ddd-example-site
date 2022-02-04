@@ -3,10 +3,12 @@ import { useEffect } from 'react';
 import {Link, Outlet} from 'react-router-dom';
 import {setProducts} from './redux/productSlice';
 import {useSelector, useDispatch} from 'react-redux';
+import Cart from './components/Cart';
+import {toggleCart, hideCart} from './redux/cartSlice';
 
 function App() {
   const dispatch = useDispatch();
-  const cartItems = useSelector((state) => state.cart.items);
+  const cart = useSelector((state) => state.cart);
   
   useEffect(() => {
       async function getProductData() {
@@ -17,9 +19,18 @@ function App() {
       getProductData();
   }, [dispatch]);
 
+  const _toggleCart = () => {
+    dispatch(toggleCart());
+  }
+
+  const _hideCart = () => {
+    if ( cart.visible )
+      dispatch(hideCart());
+  }
+
   return (
     <div className="App">
-      <header className="header">
+      <header className="header" onClick={_hideCart}>
         <ul>
           <li>
             <h1>Bridge & Glass</h1>
@@ -31,12 +42,12 @@ function App() {
             <Link to="/category/womens">Womens</Link>
           </li>
         </ul>
-        <div className="cartIcon">
+        <div className="cartIcon" onClick={_toggleCart}>
           🛒
           {
-            (cartItems.length > 0) ? (
+            (cart.items.length > 0) ? (
               <div className="itemCount">
-                {cartItems.length}
+                {cart.items.length}
               </div>
             ) : (
               <></>
@@ -44,7 +55,8 @@ function App() {
           }
         </div>
       </header>
-      <main>
+      <Cart />
+      <main onClick={_hideCart}>
         <Outlet />
       </main>
     </div>
