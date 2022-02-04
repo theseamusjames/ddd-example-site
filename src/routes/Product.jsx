@@ -1,6 +1,7 @@
 import {useParams} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../redux/cartSlice';
+import Button from '../components/Button';
 import "./Product.css";
 
 import Gallery from '../components/Gallery';
@@ -30,7 +31,7 @@ export default function Product() {
                 <h2>{product.name}</h2>
                 <p>${product.price}</p>
                 <div>
-                    <button onClick={_addToCart}>Add to Cart</button>
+                    <Button clickEvent={_addToCart} text="Add to Cart" type="addToCart" />
                 </div>
                 <h3>Description</h3>
                 <p>{product.description}</p>

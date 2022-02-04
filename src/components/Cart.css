@@ -1,0 +1,55 @@
+.cart {
+    position: absolute;
+    height: 100vh;
+    width: 0;
+    background-color: #EEEEEE;
+    right: 0;
+    transition: width 0.5s ease-in-out;
+}
+
+.cart.show {
+    width: 25%;
+}
+
+.cart .item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.cart .item .image {
+    height: 4em;
+    width: 4em;
+    background-size: cover;
+}
+
+.cart .item .details {
+    flex-grow: 1;
+    padding-left: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cart .item .details label {
+    font-size: 0.5em;
+}
+
+.cart .totals {
+    list-style-type: none;
+    margin: 0;
+    padding: 0.5em;
+}
+
+.cart .totals li {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart .totals .grandTotal {
+    border-top: 1px solid #DDDDDD;
+    margin-top: 0.5em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
