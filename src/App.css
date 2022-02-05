@@ -42,4 +42,20 @@
 main {
   padding-left: 4em;
   padding-right: 4em;
+  margin-bottom: 5em;
+}
+
+@media screen and (max-width: 900px) {
+  main {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  .header {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .header h1 {
+    font-size: 1.3em;
+  }
 }

@@ -13,6 +13,9 @@
 
 .thumbnailList {
     list-style-type: none;
+    margin: 0;
+    margin-top: 1em;
+    padding: 0;
 }
 
 .thumbnailList li {
@@ -21,4 +24,25 @@
     border: 1px solid #EEEEEE;
     background-size: cover;
     margin-bottom: 1em;
+}
+
+@media screen and (max-width: 900px) {
+    .gallery {
+        flex-direction: column-reverse;
+    }
+    .gallery-leftColumn {
+        max-width: 100%;
+        margin: 0;
+    }
+    .gallery-rightColumn {
+        max-width: 100%;
+    }
+    .thumbnailList {
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+    .thumbnailList li {
+        margin-right: 1em;
+    }
 }

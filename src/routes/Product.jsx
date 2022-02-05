@@ -28,22 +28,24 @@ export default function Product() {
 
     return ( 
         <section className="product">
-            <div className="leftColumn">
-                <Gallery images={product.images} />
-                <Reviews product={product} />
-            </div>
-            <div className="rightColumn">
-                <h2>{product.name}</h2>
-                <a href='#reviews'><Stars rating={product.rating} /></a>
-                <p>${product.price}</p>
-                <div>
-                    <Button clickEvent={_addToCart} text="Add to Cart" type="primary" />
+            <div className='columns'>
+                <div className="leftColumn">
+                    <Gallery images={product.images} />
                 </div>
-                <h3>Description</h3>
-                <p>{product.description}</p>
-                <h3>Features</h3>
-                <ul>{features}</ul>
+                <div className="rightColumn">
+                    <h2>{product.name}</h2>
+                    <a href='#reviews'><Stars rating={product.rating} /></a>
+                    <p>${product.price}</p>
+                    <div>
+                        <Button clickEvent={_addToCart} text="Add to Cart" type="primary" />
+                    </div>
+                    <h3>Description</h3>
+                    <p>{product.description}</p>
+                    <h3>Features</h3>
+                    <ul>{features}</ul>
+                </div>
             </div>
+            <Reviews product={product} />
         </section>
     );
 }
