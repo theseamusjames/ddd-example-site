@@ -1,0 +1,11 @@
+.stars {
+    font-size: 1.5em;
+}
+
+.starFilled {
+    color: rgb(204, 204, 0);
+}
+
+.starEmpty {
+    color: #EEEEEE;
+}

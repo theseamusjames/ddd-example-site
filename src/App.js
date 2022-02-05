@@ -14,6 +14,7 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
+    window.scrollTo(0,0);
     dispatch(hideCart());
   }, [location, dispatch]);
 
