@@ -16,6 +16,10 @@
     cursor: pointer;
 }
 
+.cart .emptyMessage {
+    text-align: center;
+}
+
 .item {
     display: flex;
     justify-content: space-between;
