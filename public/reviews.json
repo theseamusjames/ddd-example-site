@@ -1,0 +1,212 @@
+[
+    {        
+        "productId": 1,
+        "customerName": "Carla G.",
+        "rating": 3,
+        "message": "Ok, but could be stronger."
+    },
+    {        
+        "productId": 1,
+        "customerName": "Cheryl T.",
+        "rating": 2,
+        "message": "Not my favorite. Too big."
+    },
+    {        
+        "productId": 1,
+        "customerName": "Sandra O.",
+        "rating": 5,
+        "message": "Could be bigger."
+    },
+    {        
+        "productId": 2,
+        "customerName": "Ella B.",
+        "rating": 5,
+        "message": "Amazing, I love them so much."
+    },
+    {        
+        "productId": 2,
+        "customerName": "Helen R.",
+        "rating": 5,
+        "message": "Got them as a gift and I love them!!"
+    },
+    {        
+        "productId": 2,
+        "customerName": "Mae J.",
+        "rating": 5,
+        "message": "Perfect for every occasion."
+    },
+    {        
+        "productId": 3,
+        "customerName": "Rhonda D.",
+        "rating": 1,
+        "message": "Not my vibe. Too futuristic."
+    },
+    {        
+        "productId": 3,
+        "customerName": "Sally M.",
+        "rating": 5,
+        "message": "Perfect for every occasion."
+    },
+    {        
+        "productId": 3,
+        "customerName": "Mary T.",
+        "rating": 5,
+        "message": "Wow! These are amazing."
+    },
+    {        
+        "productId": 4,
+        "customerName": "Karen B.",
+        "rating": 1,
+        "message": "Very unsatisified. Tried to reach the manager, but no reply."
+    },
+    {        
+        "productId": 4,
+        "customerName": "Tanya M.",
+        "rating": 5,
+        "message": "I love my new sunglasses. They look fantastic!"
+    },
+    {        
+        "productId": 4,
+        "customerName": "Melody C.",
+        "rating": 5,
+        "message": "yassssssss."
+    },
+    {        
+        "productId": 5,
+        "customerName": "Megan L.",
+        "rating": 3,
+        "message": "I'm super happy to have them in my lineup. Exactly what I needed."
+    },
+    {        
+        "productId": 5,
+        "customerName": "Brittany W.",
+        "rating": 5,
+        "message": "I wish I could rate them 10 stars. They're my new favorite."
+    },
+    {        
+        "productId": 6,
+        "customerName": "Penny V.",
+        "rating": 2,
+        "message": "Not gonna lie, I thought these were bigger."
+    },
+    {        
+        "productId": 7,
+        "customerName": "John C.",
+        "rating": 4,
+        "message": "Great sunglasses. They fit perfectly."
+    },
+    {        
+        "productId": 7,
+        "customerName": "Mark D.",
+        "rating": 5,
+        "message": "Wonderful sunglasses. Very dark."
+    },
+    {        
+        "productId": 7,
+        "customerName": "Tim B.",
+        "rating": 5,
+        "message": "Terrific. Everything is much dimmer."
+    },
+    {        
+        "productId": 7,
+        "customerName": "Mike K.",
+        "rating": 4,
+        "message": "Pretty good."
+    },
+    {        
+        "productId": 8,
+        "customerName": "Tim P.",
+        "rating": 2,
+        "message": "I don't like them."
+    },
+    {        
+        "productId": 8,
+        "customerName": "Josh R.",
+        "rating": 5,
+        "message": "So slick. I love rocking them at festivals."
+    },
+    {        
+        "productId": 8,
+        "customerName": "Sam C.",
+        "rating": 5,
+        "message": "vintage retro vibes ya feel me"
+    },
+    {        
+        "productId": 9,
+        "customerName": "Carl C.",
+        "rating": 4,
+        "message": "Very nice I like them."
+    },
+    {        
+        "productId": 9,
+        "customerName": "John F.",
+        "rating": 5,
+        "message": "love em."
+    },
+    {        
+        "productId": 9,
+        "customerName": "Terry L.",
+        "rating": 4,
+        "message": "They good."
+    },
+    {        
+        "productId": 10,
+        "customerName": "Charles.",
+        "rating": 2,
+        "message": "Not dark enough."
+    },
+    {        
+        "productId": 10,
+        "customerName": "Sal H.",
+        "rating": 2,
+        "message": "not my style"
+    },
+    {        
+        "productId": 10,
+        "customerName": "Mark S.",
+        "rating": 5,
+        "message": "perfection"
+    },
+    {        
+        "productId": 11,
+        "customerName": "Daryl D.",
+        "rating": 5,
+        "message": "These are the finest sunglasses I have ever owned. Whoever designed them is an autuer of the highest order."
+    },
+    {        
+        "productId": 11,
+        "customerName": "Cal M.",
+        "rating": 5,
+        "message": "pretty nice."
+    },
+    {        
+        "productId": 11,
+        "customerName": "Ed G.",
+        "rating": 4,
+        "message": "Perfect to wear at night."
+    },
+    {        
+        "productId": 11,
+        "customerName": "Jeff G.",
+        "rating": 4,
+        "message": "No sun."
+    },
+    {        
+        "productId": 12,
+        "customerName": "Sammy R.",
+        "rating": 1,
+        "message": "gross"
+    },
+    {        
+        "productId": 12,
+        "customerName": "Ted L.",
+        "rating": 5,
+        "message": "Absolutely my favorite pair. Goes great with my whistle."
+    },
+    {        
+        "productId": 12,
+        "customerName": "Dan D.",
+        "rating": 1,
+        "message": "so bad lol"
+    }
+]
