@@ -15,11 +15,24 @@ export default function Cart() {
 
     return (
         <div className={classes.join(" ")}>
-            <CartItemsList cart={cart}/>
-            <CartTotals cart={cart} />
-            <div className='checkoutButtonContainer'>
-                <Button clickEvent={() => navigate('/checkout')} text="Checkout" type='primary' />
-            </div>
+            {
+                (cart.items.length > 0) ?
+                (
+                    <div>
+                        <CartItemsList cart={cart}/>
+                        <CartTotals cart={cart} />
+                        <div className='checkoutButtonContainer'>
+                            <Button clickEvent={() => navigate('/checkout')} text="Checkout" type='primary' />
+                        </div>
+                    </div>
+                ) : 
+                (
+                    <div className='emptyMessage'>
+                        <h3>Your cart is empty</h3>
+                    </div>
+                )
+            }
+            
         </div>
     );
 }
