@@ -69,3 +69,15 @@
     align-content: center;
     padding: 3em;
 }
+
+@media screen and (max-width: 900px) {
+    .cart.show {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    .cart.show {
+        width: 50%;
+    }
+}

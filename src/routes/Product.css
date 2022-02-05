@@ -1,14 +1,29 @@
-.product {
+.product .columns {
     display: flex;
 }
 
-.leftColumn {
+.product .columns .leftColumn {
     max-width: 75%;
 }
 
-.rightColumn {
+.product .columns .rightColumn {
     width: 25%;
     max-width: 25%;
+}
+
+@media screen and (max-width: 900px) {
+    .product .columns {
+        flex-direction: column;
+    }
+
+    .product .columns .leftColumn {
+        max-width: 100%;
+    }
+
+    .product .columns .rightColumn {
+        max-width: 100%;
+        width: 100%;
+    }
 }
 
 .leftColumn img {

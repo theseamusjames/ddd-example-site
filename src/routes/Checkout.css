@@ -3,6 +3,10 @@
     justify-content: space-around;
 }
 
+.checkout .rightColumn {
+    width: 30%;
+}
+
 .addressPanel fieldset {
     border: 0;
     padding: 0;
@@ -11,7 +15,7 @@
 
 .addressPanel label {
     display: block;
-    font-size: 0.5em;
+    font-size: 0.8em;
 }
 
 .addressPanel input[type='text'] {
@@ -29,7 +33,7 @@
 
 .ccFormPanel label {
     display: block;
-    font-size: 0.5em;
+    font-size: 0.8em;
 }
 
 .ccFormPanel input[type='text'] {
@@ -37,4 +41,19 @@
     padding: 0.5em;
     margin-bottom: 1em;
     width: 30em;
+}
+
+.nextButton {
+    margin-top: 1em;
+    margin-bottom: 4em;
+}
+
+@media screen and (max-width: 900px) {
+    .checkout {
+        flex-direction: column-reverse;
+    }
+
+    .checkout .rightColumn {
+        width: 100%;
+    }
 }
