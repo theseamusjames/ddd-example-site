@@ -44,13 +44,13 @@ function App() {
             <h1><Link to="/">Bridge & Glass</Link></h1>
           </li>
           <li>
-            <Link to="/category/mens">Mens</Link>
+            <Link to="/category/mens" data-testid='headerMenu'>Mens</Link>
           </li>
           <li>
-            <Link to="/category/womens">Womens</Link>
+            <Link to="/category/womens" data-testid='headerMenu'>Womens</Link>
           </li>
         </ul>
-        <div className="cartIcon" onClick={_toggleCart}>
+        <div className="cartIcon" onClick={_toggleCart} data-testid='cartButton'>
           <ShoppingCart size={30}/>
           {
             (cart.items.length > 0) ? (

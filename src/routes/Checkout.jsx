@@ -55,7 +55,7 @@ export default function Checkout() {
                         (<></>)
                 }
                 <div className='nextButton'>
-                    <Button clickEvent={() => _nextPanel()} type='primary' text={_getButtonText()} />
+                    <Button clickEvent={() => _nextPanel()} type='primary' text={_getButtonText()} data-testid='checkoutNextButton'/>
                 </div>
             </div>
             <div className='rightColumn'>
