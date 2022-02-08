@@ -10,6 +10,7 @@ export default function Gallery({images}) {
         return (
             <li 
                 key={index}
+                data-testid='thumbnail'
                 onClick={() => {changeImage(image)} }
                 style={{backgroundImage: `url(/assets/${image})`}}
             />

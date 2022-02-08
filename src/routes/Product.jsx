@@ -37,7 +37,7 @@ export default function Product() {
                     <a href='#reviews'><Stars rating={product.rating} /></a>
                     <p>${product.price}</p>
                     <div>
-                        <Button clickEvent={_addToCart} text="Add to Cart" type="primary" />
+                        <Button clickEvent={_addToCart} text="Add to Cart" type="primary" data-testid='addToCartButton' />
                     </div>
                     <h3>Description</h3>
                     <p>{product.description}</p>

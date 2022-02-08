@@ -11,7 +11,7 @@ export default function CartItemsList({cart}) {
 
     const items = cart.items.map((item, index) => {
         return (
-            <div className='item' key={index}>
+            <div className='item' key={index} data-testid='cartItem'>
                 <div className='image' style={{backgroundImage: `url(/assets/${item.images[0]})`}} />
                 <div className='details'>
                     <div className='name'>

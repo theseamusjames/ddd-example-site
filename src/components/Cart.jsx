@@ -22,7 +22,7 @@ export default function Cart() {
                         <CartItemsList cart={cart}/>
                         <CartTotals cart={cart} />
                         <div className='checkoutButtonContainer'>
-                            <Button clickEvent={() => navigate('/checkout')} text="Checkout" type='primary' />
+                            <Button clickEvent={() => navigate('/checkout')} text="Checkout" type='primary' data-testid='checkoutButton' />
                         </div>
                     </div>
                 ) : 
