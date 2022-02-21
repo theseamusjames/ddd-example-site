@@ -1,14 +1,13 @@
-import {useParams} from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { addToCart } from '../redux/cartSlice';
-import Button from '../components/Button';
 import "./Product.css";
+import {useParams} from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Gallery from '../components/Gallery';
 import Reviews from '../components/Reviews';
 import Stars from '../components/Stars';
+import AddToCartButton from "../components/AddToCartButton";
 
 export default function Product() {
-    const dispatch = useDispatch();
+
     const params = useParams();
 
     // Get our products from the state. These are pre-loaded in app.js
@@ -22,10 +21,6 @@ export default function Product() {
     // Build our features list
     const features = product.features.map((feature, index) => (<li key={index}>{feature}</li>));
 
-    const _addToCart = () => {
-        dispatch(addToCart(product));
-    }
-
     return ( 
         <section className="product">
             <div className='columns'>
@@ -37,7 +32,7 @@ export default function Product() {
                     <a href='#reviews'><Stars rating={product.rating} /></a>
                     <p>${product.price}</p>
                     <div>
-                        <Button clickEvent={_addToCart} text="Add to Cart" type="primary" data-testid='addToCartButton' />
+                        <AddToCartButton product={product} />
                     </div>
                     <h3>Description</h3>
                     <p>{product.description}</p>
