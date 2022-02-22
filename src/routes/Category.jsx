@@ -1,13 +1,22 @@
+import "./Category.css";
+import { useEffect, useState } from "react";
 import {useParams} from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
-import "./Category.css";
-import { useSelector } from 'react-redux';
+import Api from '../services/api';
+
 
 export default function Category() {
     const params = useParams();
-    const allProducts = useSelector((state) => state.product.products);
-    const products = allProducts.filter(p => p.categories.includes(params.categoryName))
- 
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        async function _loadProducts() {
+            const _products = await Api.getProducts();
+            setProducts( _products.filter(p => p.categories.includes(params.categoryName)) );
+        }
+        _loadProducts();
+    }, [params]);
+
     const items = products.map(p => (<ProductCard product={p} key={p.id}/>));
     
     return (

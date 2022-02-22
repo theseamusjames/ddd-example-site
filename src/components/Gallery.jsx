@@ -1,19 +1,15 @@
-import {useState} from 'react';
 import "./Gallery.css";
+import {useState} from 'react';
+import GalleryThumbnail from './GalleryThumbnail';
 
 export default function Gallery({images}) {
     const [selectedImage, setSelectedImage] = useState(images[0]);
     
-    const changeImage = (image) => setSelectedImage(image);
+    const _changeImage = (image) => setSelectedImage(image);
     
     const thumbnails = images.map((image, index) => {
         return (
-            <li 
-                key={index}
-                data-testid='thumbnail'
-                onClick={() => {changeImage(image)} }
-                style={{backgroundImage: `url(/assets/${image})`}}
-            />
+            <GalleryThumbnail key={index} image={image} clickEvent={() => _changeImage(image)} />
         );
     })
 

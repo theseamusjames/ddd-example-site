@@ -1,22 +1,27 @@
 import "./Product.css";
+import { useEffect, useState } from "react";
 import {useParams} from 'react-router-dom';
-import { useSelector } from 'react-redux';
+
+// Components
+import Api from '../services/api';
 import Gallery from '../components/Gallery';
 import Reviews from '../components/Reviews';
 import Stars from '../components/Stars';
 import AddToCartButton from "../components/AddToCartButton";
 
 export default function Product() {
-
     const params = useParams();
+    const [product, setProduct] = useState();
 
-    // Get our products from the state. These are pre-loaded in app.js
-    const products = useSelector((state) => state.product.products);
-    if ( products.length === 0 ) 
+    useEffect(() => {
+        async function _loadProduct() {
+            setProduct( await Api.getProduct(parseInt(params.productId)) );
+        }
+        _loadProduct();
+    }, [params]);
+
+    if ( !product ) 
         return (<></>);
-    
-    // Find our specific product by ID
-    const product = products.find(p => p.id === parseInt(params.productId));
 
     // Build our features list
     const features = product.features.map((feature, index) => (<li key={index}>{feature}</li>));

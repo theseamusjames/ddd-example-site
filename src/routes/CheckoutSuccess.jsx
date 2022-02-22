@@ -1,7 +1,7 @@
 import './CheckoutSuccess.css';
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import {clearCart} from '../redux/cartSlice';
-import { useEffect, useState } from "react";
 
 export default function CheckoutSuccess() {
     const dispatch = useDispatch();

@@ -1,13 +1,15 @@
 import './Checkout.css';
+import {useState} from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
+// Components
 import CartItemsList from '../components/CartItemsList';
 import CartTotals from '../components/CartTotals';
-import { useSelector } from 'react-redux';
 import AddressPanel from '../components/AddressPanel';
 import ShippingMethodPanel from '../components/ShippingMethodPanel';
 import CCFormPanel from '../components/CCFormPanel';
 import Button from '../components/Button';
-import {useState} from 'react';
-import { useNavigate } from 'react-router-dom';
 
 export default function Checkout() {
     const navigate = useNavigate();

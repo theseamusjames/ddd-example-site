@@ -1,17 +1,13 @@
 import './Reviews.css';
 import { useEffect, useState } from "react";
+import Api from '../services/api';
 import Review from "./Review";
 
 export default function Reviews({product}) {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        async function getReviews(productId) {
-            const response = await fetch('http://localhost:3000/reviews.json');
-            const reviews = JSON.parse(await response.text());
-            return reviews.filter((review) => review.productId === productId);
-        }
-        getReviews(product.id).then((_reviews) => {
+        Api.getReviewsForProductId(product.id).then((_reviews) => {
             setReviews(_reviews.map((review, index) => (<Review review={review} key={index}/>)) )
         });
     }, [product.id]);

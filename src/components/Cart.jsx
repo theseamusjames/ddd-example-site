@@ -1,9 +1,11 @@
 import './Cart.css';
 import { useSelector } from 'react-redux';
+import {useNavigate} from 'react-router-dom';
+
+// Components
 import CartItemsList from './CartItemsList';
 import CartTotals from './CartTotals';
 import Button from './Button';
-import {useNavigate} from 'react-router-dom';
 
 export default function Cart() {
     const navigate = useNavigate();

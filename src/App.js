@@ -1,74 +1,37 @@
 import './App.css';
 import { useEffect } from 'react';
-import {Link, Outlet} from 'react-router-dom';
-import {setProducts} from './redux/productSlice';
+import {Outlet, useLocation} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
+import {hideCart} from './redux/cartSlice';
+
+// Components
 import Cart from './components/Cart';
-import {toggleCart, hideCart} from './redux/cartSlice';
-import {useLocation} from 'react-router-dom';
-import {ShoppingCart} from 'react-feather';
+import Header from './components/Header';
 
 function App() {
-  const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
-  const location = useLocation();
+	const dispatch = useDispatch();
+	const location = useLocation();
+	const cart = useSelector((store) => store.cart);
 
-  useEffect(() => {
-    window.scrollTo(0,0);
-    dispatch(hideCart());
-  }, [location, dispatch]);
+	useEffect(() => {
+		window.scrollTo(0,0);
+		dispatch(hideCart());
+	}, [location, dispatch]);
 
-  useEffect(() => {
-      async function getProductData() {
-          const response = await fetch('http://localhost:3000/products.json');
-          const _products = JSON.parse(await response.text());
-          dispatch(setProducts(_products));
-      }
-      getProductData();
-  }, [dispatch]);
+	const _hideCart = () => {
+		if ( cart.visible )
+			dispatch(hideCart());
+	}
 
-  const _toggleCart = () => {
-    dispatch(toggleCart());
-  }
-
-  const _hideCart = () => {
-    if ( cart.visible )
-      dispatch(hideCart());
-  }
-
-  return (
-    <div className="App">
-      <header className="header" onClick={_hideCart}>
-        <ul>
-          <li>
-            <h1><Link to="/">Bridge & Glass</Link></h1>
-          </li>
-          <li>
-            <Link to="/category/mens" data-testid='headerMenu'>Mens</Link>
-          </li>
-          <li>
-            <Link to="/category/womens" data-testid='headerMenu'>Womens</Link>
-          </li>
-        </ul>
-        <div className="cartIcon" onClick={_toggleCart} data-testid='cartButton'>
-          <ShoppingCart size={30}/>
-          {
-            (cart.items.length > 0) ? (
-              <div className="itemCount">
-                {cart.items.length}
-              </div>
-            ) : (
-              <></>
-            )
-          }
-        </div>
-      </header>
-      <Cart />
-      <main onClick={_hideCart}>
-        <Outlet />
-      </main>
-    </div>
-  );
+	return (
+		<div className="App">
+			<Header />
+			<Cart />
+			<main onClick={_hideCart}>
+				<Outlet />
+			</main>
+		</div>
+	);
 }
 
 export default App;
