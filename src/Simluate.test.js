@@ -98,6 +98,15 @@ async function simulateVisitor(visitorId) {
             await page.waitForSelector("[data-testid='addToCartButton']");
             await page.click("[data-testid='addToCartButton']");
             itemsInCart++;
+
+            // If you show a user a checkout button after adding to cart, 
+            // some of them will click on it. 
+            // 1 in 15 chance
+            await page.waitForTimeout(1000);
+            const checkoutAvailable = await page.$("[data-testid='checkoutButton']");
+            if ( checkoutAvailable && roll(15) == 1 ) {
+                return await _doCheckout(browser, page, visitorId);
+            } 
         }
     }
 
@@ -115,6 +124,10 @@ async function simulateVisitor(visitorId) {
         
     await page.waitForSelector("[data-testid='checkoutButton']");
 
+    return await _doCheckout(browser, page, visitorId);
+}
+
+async function _doCheckout(browser, page, visitorId) {
     page.click("[data-testid='checkoutButton']");
     await page.waitForNavigation();
 
