@@ -15,7 +15,8 @@ export default function Product() {
 
     useEffect(() => {
         async function _loadProduct() {
-            setProduct( await Api.getProduct(parseInt(params.productId)) );
+            const product = await Api.getProduct(parseInt(params.productId));
+            setProduct( product );
         }
         _loadProduct();
     }, [params]);
