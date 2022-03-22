@@ -1,5 +1,7 @@
 .product .columns {
     display: flex;
+    flex-basis: 2;
+    flex-wrap: wrap;
 }
 
 .product .columns .leftColumn {
