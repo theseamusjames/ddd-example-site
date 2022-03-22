@@ -2,11 +2,18 @@ const {faker} = require('@faker-js/faker');
 const baseUrl = 'http://localhost:3000';
 const puppeteer = require('puppeteer');
 
+// Number of visitors to simulate
+const NUM_OF_VISITORS = 500;
+
 // How many test cases to run in parallel.
 // Smaller is slower, but less taxing on your computer.
 const BATCH_SIZE = 4;
 
-const roll = (sides) => Math.floor(Math.random() * sides) + 1;
+// Want to watch the simulations? 
+const SHOW_SIMULATIONS = false;
+
+// Test on mobile size?
+const USE_MOBILE_SIZE = false;
 
 /* 
     Traffic simulator
@@ -25,31 +32,51 @@ const roll = (sides) => Math.floor(Math.random() * sides) + 1;
     Note: If your computer really struggles to run this, try adjusting 
     the BATCH_SIZE variable to something smaller. 
 */
-test('simulate 100 visitors', () => {
+test(`simulate ${NUM_OF_VISITORS} visitors`, () => {
     const batchedSimulations = (total) => {
         const promises = [];
         const batch = (total < BATCH_SIZE) ? total : BATCH_SIZE;
         for (let id=0; id<batch; id++) {
             promises.push(new Promise((resolve, reject) => {
-                simulateVisitor(total - id).then(() => resolve());
+                let active = true;
+                setTimeout(() => {
+                    if ( active ) reject();
+                }, 15000);
+                simulateVisitor(total - id).then(() => {
+                    active = false;
+                    resolve();
+                });
             }));
         }
         return Promise.all(promises).then(() => {
+            if ( total >= BATCH_SIZE )
+                return batchedSimulations(total - BATCH_SIZE);
+        }, () => {
             if ( total >= BATCH_SIZE )
                 return batchedSimulations(total - BATCH_SIZE);
         })
     }
 
     return new Promise((resolve, reject) => {
-        batchedSimulations(100).then(() => resolve());
+        batchedSimulations(NUM_OF_VISITORS).then(() => resolve());
     });
-}, 99999999);
+}, 2500000);
 
 async function simulateVisitor(visitorId) {
     let itemsInCart = 0;
+    let checkoutBoost = 0;
+    let addToCartBoost = 0;
     const browser = await puppeteer.launch({
-        headless: true,
+        headless: !SHOW_SIMULATIONS,
+        defaultViewport: (USE_MOBILE_SIZE) ? {width: 390, height: 844} : {width: 1920, height: 1080},
+        args:[
+            '--start-fullscreen' // you can also use '--start-fullscreen'
+         ]
     });
+    setTimeout(() => {
+        if ( browser.isConnected() )
+            return outcome(browser, visitorId, "Browser stalled");
+    }, 12000);
     const page = await browser.newPage(); 
     await page.goto(baseUrl);
     
@@ -62,7 +89,8 @@ async function simulateVisitor(visitorId) {
     
     // Simulate browsing around the site
     // Up to 4 cycles of category -> product -> add to cart
-    for(let rounds=0; rounds<4; rounds++) {
+    let maxRounds = 2;
+    for(let rounds=0; rounds<maxRounds; rounds++) {
         await category.click();
         await page.waitForSelector("[data-testid='productCard']");
 
@@ -86,30 +114,50 @@ async function simulateVisitor(visitorId) {
 
         const thumbnails = await page.$$("[data-testid='thumbnail']");
         let thumbsViewed;
-        for(thumbsViewed=0; thumbsViewed<roll(thumbnails.length); thumbsViewed++) {
-            const thumbnail = thumbnails[roll(thumbnails.length) - 1];
+        for(thumbsViewed=0; thumbsViewed<6; thumbsViewed++) {
+            const randomIndex = roll(thumbnails.length) - 1;
+            const thumbnail = thumbnails[randomIndex];
             await thumbnail.click();
+            addToCartBoost += 0.2;
         }
 
-        // 10 to 1 (10%) chance of adding to cart
+        // 1 in 15 chance of adding to cart
         // BUT
         // Viewing more thumbnails makes you more likely to ATC
-        if ( roll(10 - thumbsViewed) == 1 ) {
+        // And 
+        // Seeing product recommendations makes you more likely to ATC
+        if ( roll(15 - addToCartBoost) == 1 ) {
             await page.waitForSelector("[data-testid='addToCartButton']");
             await page.click("[data-testid='addToCartButton']");
             itemsInCart++;
 
             // If you show a user a checkout button after adding to cart, 
             // some of them will click on it. 
-            // 1 in 15 chance
-            await page.waitForTimeout(1000);
-            const checkoutAvailable = await page.$("[data-testid='checkoutButton']");
-            if ( checkoutAvailable && roll(15) == 1 ) {
+            // 1 in 3 chance
+            await page.waitForTimeout(1500);
+            const checkoutAvailable = await page.$$("[data-testid='checkoutButton']");
+            if ( checkoutAvailable.length && roll(3) == 1 ) {
                 return await _doCheckout(browser, page, visitorId);
             } 
+
+            const recommendations = await page.$$(".productRecommendation");
+            if ( recommendations.length ) {
+                addToCartBoost += 10;
+                maxRounds+=2;
+            } else {
+                addToCartBoost -= 2;
+            }
+        }
+
+        // Clear any overlay
+        const overlay = await page.$('.overlay');
+        if ( overlay ) {
+            overlay.click();
+            await page.waitForTimeout(200);
         }
     }
-
+    
+    await page.click("main");
     await page.click("[data-testid='cartButton']");
     await page.waitForTimeout(1000);
     const items = await page.$$("[data-testid='cartItem']");
@@ -128,9 +176,17 @@ async function simulateVisitor(visitorId) {
 }
 
 async function _doCheckout(browser, page, visitorId) {
-    page.click("[data-testid='checkoutButton']");
+    const buttons = await page.$$("[data-testid='checkoutButton']");
+    const viewport = page.viewport();
+    buttons.forEach(async (button) => {
+        const bb = await button.boundingBox();
+        if ( bb.x < viewport.width && bb.y && viewport.height && bb.height && bb.width ) {
+            await button.click();
+        }
+    });
     await page.waitForNavigation();
 
+    await page.waitForTimeout(1200);
     await page.click("input[id='name']");
     await page.type("input[id='name']", faker.name.findName());
     await page.click("input[id='street']");
@@ -187,3 +243,5 @@ const outcome = (browser, visitorId, message) => {
         }, 250);
     });
 };
+
+const roll = (sides) => Math.floor(Math.random() * ((sides > 0) ? sides : 0)) + 1;
