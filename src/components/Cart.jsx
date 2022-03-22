@@ -12,11 +12,11 @@ export default function Cart() {
     const cart = useSelector((state) => state.cart);
 
     const classes = ['cart'];
-    if ( cart.visible ) 
+    if ( cart.visible )
         classes.push('show');
 
     return (
-        <div className={classes.join(" ")}>
+        <div className={[classes.join(" ")]}>
             {
                 (cart.items.length > 0) ?
                 (
@@ -24,7 +24,9 @@ export default function Cart() {
                         <CartItemsList cart={cart}/>
                         <CartTotals cart={cart} />
                         <div className='checkoutButtonContainer'>
-                            <Button clickEvent={() => navigate('/checkout')} text="Checkout" type='primary' data-testid='checkoutButton' />
+                            {(cart.visible) ? (
+                                <Button clickEvent={() => navigate('/checkout')} text="Checkout" type='primary' data-testid='checkoutButton' />
+                            ) : (<></>)}
                         </div>
                     </div>
                 ) : 
@@ -34,7 +36,6 @@ export default function Cart() {
                     </div>
                 )
             }
-            
         </div>
     );
 }
