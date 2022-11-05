@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/cartSlice';
 import Button from "./Button";

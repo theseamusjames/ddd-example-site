@@ -1,3 +1,4 @@
+import * as React from 'react';
 import App from '../App';
 import Category from './Category';
 import Product from './Product';

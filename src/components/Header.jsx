@@ -1,3 +1,4 @@
+import * as React from 'react';
 import "./header.css";
 import {Link} from 'react-router-dom';
 import CartButton from './CartButton';

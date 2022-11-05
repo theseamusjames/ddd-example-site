@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import {removeFromCart} from '../redux/cartSlice';
 import {X} from 'react-feather';

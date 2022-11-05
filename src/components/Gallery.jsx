@@ -1,3 +1,4 @@
+import * as React from 'react';
 import "./Gallery.css";
 import {useState} from 'react';
 import GalleryThumbnail from './GalleryThumbnail';

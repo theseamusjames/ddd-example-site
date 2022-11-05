@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useState } from 'react';
 import {ThumbsUp, ThumbsDown} from 'react-feather';
 import Stars from './Stars';

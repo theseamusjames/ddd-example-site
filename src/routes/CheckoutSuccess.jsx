@@ -1,3 +1,4 @@
+import * as React from 'react';
 import './CheckoutSuccess.css';
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import './Checkout.css';
 import {useState} from 'react';
 import { useSelector } from 'react-redux';

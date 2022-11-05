@@ -1,3 +1,4 @@
+import * as React from 'react';
 import './Reviews.css';
 import { useEffect, useState } from "react";
 import Api from '../services/api';
